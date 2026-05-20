@@ -33,7 +33,7 @@ fun SpaceScreen(
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(
-            text = "🚀 Mission : Qui est dans l'Espace ?",
+            text = "🚀 Mission : Qui est dans l'espace ?",
             fontSize = 24.sp,
             fontWeight = FontWeight.Bold,
             modifier = Modifier.padding(bottom = 16.dp)
@@ -86,11 +86,17 @@ fun AstronautRow(astronaut: AstronautEntity) {
         )
     ) {
         Column(modifier = Modifier.padding(16.dp)) {
-            Text(
-                text = astronaut.fullName,
-                fontSize = 18.sp,
-                fontWeight = FontWeight.Bold
-            )
+            Row(modifier = Modifier.padding(16.dp)) {
+                Text(
+                    text = astronaut.fullName,
+                    fontSize = 18.sp,
+                    fontWeight = FontWeight.Bold
+                )
+                Text(
+                    text = "${astronaut.spaceCraft}",
+                    fontSize = 22.sp,
+                )
+            }
             Spacer(modifier = Modifier.height(4.dp))
             Text(
                 text = "À bord de : ${astronaut.spaceCraft}",

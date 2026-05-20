@@ -18,9 +18,24 @@ class SpaceViewModel : ViewModel() {
     init {
         loadAstronauts()
     }
-
-    // va demander à Ktor de récupérer les données
     fun loadAstronauts() {
+        viewModelScope.launch {
+            try {
+                val response = SpaceApiClient.fetchAstronauts()
+                _uiState.value = response
+            } catch (e: Exception) {
+                println("ERREUR NASA API : ${e.message}")
+                e.printStackTrace()
+
+                _uiState.value = AstrosResponse(
+                    status = "error",
+                    totalAstronauts = 0,
+                    astronautsList = emptyList()
+                )
+            }
+        }
+    }
+    /*fun loadAstronauts() {
         viewModelScope.launch {
             try {
                 val response = SpaceApiClient.fetchAstronauts()
@@ -29,5 +44,5 @@ class SpaceViewModel : ViewModel() {
                 _uiState.value = null
             }
         }
-    }
+    }*/
 }

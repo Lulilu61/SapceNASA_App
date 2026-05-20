@@ -21,6 +21,5 @@ object SpaceApiClient {
     }
 
     suspend fun fetchAstronauts(): AstrosResponse {
-        return client.get("http://api.open-notify.org/astros.json").body()
-    }
+        return client.get("http://api.open-notify.org/astros.json").body()    }
 }
