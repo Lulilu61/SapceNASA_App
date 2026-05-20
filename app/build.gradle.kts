@@ -55,4 +55,12 @@ dependencies {
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
+
+    //Client requête
+    implementation("io.ktor:ktor-client-okhttp:3.2.2")
+    //Intégration avec la bibliothèque de serialisation, gestion des headers
+    implementation("io.ktor:ktor-client-content-negotiation:3.2.2")
+    implementation("io.ktor:ktor-serialization-kotlinx-json:3.2.2") //Serialisation JSON
+    implementation("io.ktor:ktor-client-logging-jvm:3.2.2")  //log
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.0")
 }
